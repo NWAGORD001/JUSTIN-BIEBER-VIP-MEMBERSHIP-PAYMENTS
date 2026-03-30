@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Justin Bieber VIP Membership</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0a0a0a;
+    color:white;
+}
+header{
+    text-align:center;
+    padding:30px;
+    background:black;
+}
+h1{
+    color:#ffd700;
+}
+.hero{
+    text-align:center;
+    padding:40px;
+}
+.timer{
+    text-align:center;
+    font-size:20px;
+    margin-top:10px;
+    color:#00ffcc;
+}
+.btn{
+    display:inline-block;
+    background:#ffd700;
+    padding:12px 25px;
+    color:black;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:5px;
+    margin-top:20px;
+}
+.section{
+    padding:30px;
+}
+.plans{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+.card{
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+    width:280px;
+    text-align:center;
+    border:1px solid #ffd700;
+    cursor:pointer;
+    transition:0.3s;
+}
+.card:hover{
+    transform:scale(1.05);
+    background:#1a1a1a;
+}
+.selected{
+    border:2px solid #00ffcc;
+}
+.price{
+    font-size:24px;
+    margin:10px 0;
+    color:#ffd700;
+}
+.spots{
+    color:#ff4d4d;
+    font-weight:bold;
+}
+.testimonial{
+    background:#111;
+    padding:15px;
+    border-radius:10px;
+    margin:10px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.testimonial img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+input, button{
+    padding:10px;
+    margin:5px;
+    width:90%;
+}
+.wallet-box{
+    background:#111;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    border:1px solid #ffd700;
+}
+.copy-btn{
+    background:#00ffcc;
+    border:none;
+    padding:10px 20px;
+    margin-top:10px;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+}
+footer{
+    text-align:center;
+    padding:20px;
+    background:black;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Justin Bieber VIP Membership</h1>
+    <p>Exclusive Access for True Fans</p>
+</header>
+
+<div class="hero">
+    <h2>Join the Inner Circle</h2>
+    <p>Limited Membership Slots Available</p>
+    <div class="timer" id="countdown"></div>
+    <a href="#plans" class="btn">Join Now</a>
+</div>
+
+<div class="section" id="plans">
+    <h2 style="text-align:center;">Choose Your Plan</h2>
+
+    <div class="plans">
+
+        <div class="card" onclick="selectPlan('Silver',500, this)">
+            <h2>Silver Access</h2>
+            <div class="price">$500</div>
+            <p class="spots">Only 37 spots left</p>
+        </div>
+
+        <div class="card" onclick="selectPlan('Gold',1200, this)">
+            <h2>Gold Access</h2>
+            <div class="price">$1200</div>
+            <p class="spots">Only 18 spots left</p>
+        </div>
+
+        <div class="card" onclick="selectPlan('Platinum',3000, this)">
+            <h2>Platinum Elite</h2>
+            <div class="price">$3000</div>
+            <p class="spots">Only 7 spots left</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="section">
+    <h2 style="text-align:center;">Register</h2>
+    <form>
+        <input type="text" placeholder="Full Name"><br>
+        <input type="email" placeholder="Email"><br>
+        <button type="button">Register</button>
+    </form>
+</div>
+
+<div class="section">
+    <h2 style="text-align:center;">Payment Details</h2>
+
+    <div class="wallet-box">
+        <p><strong>Selected Plan:</strong> <span id="plan">None</span></p>
+        <p><strong>Amount:</strong> $<span id="amount">0</span></p>
+
+        <hr>
+
+        <p><strong>Crypto Network:</strong> USDT (TRC20)</p>
+        <p><strong>Wallet Address:</strong></p>
+
+        <p id="wallet" style="font-weight:bold; word-break: break-all;">
+            TNcgtrzYHDKN5wAhoHHhJzLHv5Gbr7z1DJ
+        </p>
+
+        <button class="copy-btn" onclick="copyWallet()">Copy Wallet Address</button>
+
+        <p id="copyMsg" style="color:#00ffcc; display:none;">✅ Wallet copied!</p>
+
+        <p>⚠️ Send only USDT via TRC20 network.</p>
+        <p>Send exact amount after selecting a plan.</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2 style="text-align:center;">Fan Testimonials</h2>
+
+    <div class="testimonial">
+        <img src="https://i.pravatar.cc/100?img=5">
+        <div>
+            <p>"Best experience ever, felt so connected!"</p>
+            <strong>- Sarah M.</strong>
+        </div>
+    </div>
+
+    <div class="testimonial">
+        <img src="https://i.pravatar.cc/100?img=12">
+        <div>
+            <p>"VIP content is insane, totally worth it."</p>
+            <strong>- James K.</strong>
+        </div>
+    </div>
+
+    <div class="testimonial">
+        <img src="https://i.pravatar.cc/100?img=20">
+        <div>
+            <p>"I actually got noticed. Unreal!"</p>
+            <strong>- Daniel T.</strong>
+        </div>
+    </div>
+
+    <div class="testimonial">
+        <img src="https://i.pravatar.cc/100?img=32">
+        <div>
+            <p>"This feels like real VIP access. Love it!"</p>
+            <strong>- Chloe R.</strong>
+        </div>
+    </div>
+
+    <div class="testimonial">
+        <img src="https://i.pravatar.cc/100?img=45">
+        <div>
+            <p>"Totally worth every dollar, no regrets."</p>
+            <strong>- Michael B.</strong>
+        </div>
+    </div>
+
+    <div class="testimonial">
+        <img src="https://i.pravatar.cc/100?img=60">
+        <div>
+            <p>"Best fan membership I’ve ever joined."</p>
+            <strong>- Olivia P.</strong>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Justin Bieber VIP Membership</p>
+</footer>
+
+<script>
+function selectPlan(plan, price, element){
+    document.getElementById("plan").innerText = plan;
+    document.getElementById("amount").innerText = price;
+
+    let cards = document.querySelectorAll(".card");
+    cards.forEach(card => card.classList.remove("selected"));
+
+    element.classList.add("selected");
+}
+
+function copyWallet(){
+    let wallet = document.getElementById("wallet").innerText;
+
+    navigator.clipboard.writeText(wallet).then(function() {
+        let msg = document.getElementById("copyMsg");
+        msg.style.display = "block";
+
+        setTimeout(() => {
+            msg.style.display = "none";
+        }, 2000);
+    });
+}
+
+// COUNTDOWN TIMER
+let countDownDate = new Date().getTime() + (24 * 60 * 60 * 1000);
+
+let x = setInterval(function() {
+    let now = new Date().getTime();
+    let distance = countDownDate - now;
+
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+    "Offer ends in: " + hours + "h " + minutes + "m " + seconds + "s";
+
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "Offer Expired";
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
